@@ -2,8 +2,7 @@
 float rectWidth, rectHeight, ptDiameter;
 color blue=#2028E8, green=#7AE320, orange=#E8BF38;
 color black=0, resetWhite=255, red=color(255, 0, 0);
-Boolean turnOnBlue=false;
-
+Boolean turnOnBlue=false, turnOnGreen=false, turnOnOrange=false;
 //
 int numberOfPoints = 17;
 float[] ptX = new float[numberOfPoints];
@@ -64,9 +63,12 @@ void draw()
 {
   rect(ptX[1], ptY[1], rectWidth, rectHeight);
   //
-  if (turnOnBlue==true) fill(blue);
-  //if () fill(green);
-  //if () fill(orange);
+  //if (turnOnBlue==true) fill(blue);
+  //if (turnOnGreen==true) fill(green);
+  //if (turnOnOrange==true) fill(orange);
+  //
+  if (turnOnBlue==true) {fill(blue);} else if (turnOnGreen==true) {fill(green);} else if (turnOnOrange==true) {fill(orange);} else{}
+  //
   rect(ptX[2], ptY[2], rectWidth, rectHeight);
   fill(resetWhite);
   //
@@ -141,10 +143,27 @@ void keyPressed() {
 }//
 //
 void mousePressed() {
-  if (mouseX>=buttonX[1] && mouseX <=buttonX[1]+buttonWidth[1] && mouseY>=buttonY[1] && mouseY<=buttonY[1]+buttonHeight[1]) {println("BTN 1 ACTIVATED");}
-  if (mouseX>=buttonX[2] && mouseX <=buttonX[2]+buttonWidth[2] && mouseY>=buttonY[2] && mouseY<=buttonY[2]+buttonHeight[2]) {println("BTN 2 ACTIVATED");}
-  if (mouseX>=buttonX[3] && mouseX <=buttonX[3]+buttonWidth[3] && mouseY>=buttonY[3] && mouseY<=buttonY[3]+buttonHeight[3]) {println("BTN 3 ACTIVATED");}
-  if (mouseX>=ptX[3] && mouseX <=ptX[3]+rectWidth && mouseY>=ptY[3] && mouseY<=ptY[3]+rectHeight) {println("BTN 4 ACTIVATED");}
+  if (mouseX>=buttonX[1] && mouseX <=buttonX[1]+buttonWidth[1] && mouseY>=buttonY[1] && mouseY<=buttonY[1]+buttonHeight[1]) {
+  println("BTN 1 ACTIVATED");
+  if (turnOnBlue==true) {turnOnBlue=false;} else{turnOnBlue=true;}
+}
+  //
+  if (mouseX>=buttonX[2] && mouseX <=buttonX[2]+buttonWidth[2] && mouseY>=buttonY[2] && mouseY<=buttonY[2]+buttonHeight[2]) {
+  println("BTN 2 ACTIVATED");
+  if (turnOnGreen==true) {turnOnGreen=false;} else {turnOnGreen=true;}
+}
+  //
+  if (mouseX>=buttonX[3] && mouseX <=buttonX[3]+buttonWidth[3] && mouseY>=buttonY[3] && mouseY<=buttonY[3]+buttonHeight[3]) {
+  println("BTN 3 ACTIVATED");
+  if (turnOnOrange==true) {turnOnOrange=false;} else {turnOnOrange=true;}
+}
+  //
+  if (mouseX>=ptX[3] && mouseX <=ptX[3]+rectWidth && mouseY>=ptY[3] && mouseY<=ptY[3]+rectHeight) {
+  println("BTN 4 ACTIVATED");
+  turnOnBlue=false;
+  turnOnGreen=false;
+  turnOnOrange=false;
+}
 }//
 //
 //
