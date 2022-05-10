@@ -78,7 +78,7 @@ void setup()
 //
 void draw() 
 {
-  imageDraw();
+  imageDraw1();
   fill(resetWhite);
   rect(ptX[1], ptY[1], rectWidth, rectHeight);
   //
@@ -103,9 +103,11 @@ void draw()
   if (mouseX>=buttonX[1] && mouseX <=buttonX[1]+buttonWidth[1] && mouseY>=buttonY[1] && mouseY<=buttonY[1]+buttonHeight[1]) {
   fill(blue);
   rect( buttonX[1], buttonY[1], buttonWidth[1], buttonHeight[1] );
+  imageDraw1();
   } else {
   fill(black);
-  rect( buttonX[1], buttonY[1], buttonWidth[1], buttonHeight[1] );}
+  rect( buttonX[1], buttonY[1], buttonWidth[1], buttonHeight[1] );
+  }
   //
   //
   if (mouseX>=buttonX[2] && mouseX <=buttonX[2]+buttonWidth[2] && mouseY>=buttonY[2] && mouseY<=buttonY[2]+buttonHeight[2]) {
@@ -188,7 +190,7 @@ void keyPressed() {
 void mousePressed() {
   if (mouseX>=buttonX[1] && mouseX <=buttonX[1]+buttonWidth[1] && mouseY>=buttonY[1] && mouseY<=buttonY[1]+buttonHeight[1]) {
   println("BTN 1 ACTIVATED");
-  loadImage("ship-1029x1060.png");
+  imageDraw1();
 }
   //
   if (mouseX>=buttonX[2] && mouseX <=buttonX[2]+buttonWidth[2] && mouseY>=buttonY[2] && mouseY<=buttonY[2]+buttonHeight[2]) {

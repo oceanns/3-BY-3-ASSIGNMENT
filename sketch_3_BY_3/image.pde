@@ -1,23 +1,21 @@
 //global varaible
-PImage pic1, pic2, pic3;
-float rectXPic1, rectYPic1, rectWidthPic1, rectHeightPic1;
+/*PImage pic2, pic3;
+
 float rectXPic2, rectYPic2, rectWidthPic2, rectHeightPic2;
 float rectXPic3, rectYPic3, rectWidthPic3, rectHeightPic3;
 //
 void imageDraw () 
 {
-pic1=loadImage("ship-1029x1060.png");
 pic2=loadImage("ship-1029x1060.png");
 pic3=loadImage("ship-1029x1060.png");
 //
-int pic1Width = 1000;
-int pic1Height = 301;
+
 int pic2Width = 600;
 int pic2Height = 581;
 int pic3Width = 1085;
 int pic3Height = 1072;
 //
-println(pic1Width, pic1Height, pic2Width, pic2Height, pic3Width, pic3Height);
+println( pic2Width, pic2Height, pic3Width, pic3Height);
 //
 image(pic1, rectXPic1, rectYPic1, rectWidthPic1, rectHeightPic1); 
 image(pic2, rectXPic2, rectYPic2, rectWidthPic2, rectHeightPic2);
@@ -35,4 +33,6 @@ rectXPic3 = displayWidth*0.1;
 rectYPic3 = displayHeight*0.5;
 rectWidthPic3 = displayWidth*0.8;
 rectHeightPic3 = displayHeight*0.45;
+
 }
+*/
