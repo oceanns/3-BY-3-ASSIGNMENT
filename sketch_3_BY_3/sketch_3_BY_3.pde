@@ -3,11 +3,12 @@ float rectWidth, rectHeight, ptDiameter;
 color blue=#2028E8, green=#7AE320, orange=#E8BF38;
 color black=0, resetWhite=255, red=color(255, 0, 0);
 Boolean turnOnBlue=false, turnOnGreen=false, turnOnOrange=false;
+Boolean turnOnpic1=false; 
 //
 int numberOfPoints = 17;
 float[] ptX = new float[numberOfPoints];
 float[] ptY = new float[numberOfPoints];
-int numberOfButtons = 4; 
+int numberOfButtons = 10; 
 float[] buttonX = new float[numberOfButtons];
 float[] buttonY = new float[numberOfButtons];
 float[] buttonWidth = new float[numberOfButtons];
@@ -34,19 +35,35 @@ void setup()
   ptY[13] = ptY[14] = ptY[15] = ptY[16] = appHeight*3/3;
   //
   buttonX[1] = appWidth*(1.0/9.0) ; 
-  buttonY[1] = appHeight*(1.0/9.0) ;
-  buttonWidth[1] = appWidth*(1.0/3.0)*(1.0/3.0) ; 
+  buttonY[1] = appHeight*(3.0/9.0) ;
+  buttonWidth[1] = appWidth*(1.0/2.0)*(1.0/4.0) ; 
   buttonHeight[1] = appHeight*(1.0/3.0)*(1.0/3.0) ;
   //
-  buttonX[2] = appWidth*(3.0/6.0) ; 
-  buttonY[2] = appHeight*(2.0/6.0) ;
-  buttonWidth[2] = appWidth*(1.0/3.0)*(1.0/2.0) ; 
-  buttonHeight[2] = appHeight*(1.0/3.0)*(1.0/2.0) ;
+  buttonX[2] = appWidth*(1.0/9.0) ; 
+  buttonY[2] = appHeight*(2.0/4.0) ;
+  buttonWidth[2] = appWidth*(1.0/2.0)*(1.0/4.0) ; 
+  buttonHeight[2] = appHeight*(1.0/2.0)*(1.0/4.0) ;
   //
-  buttonX[3] = appWidth*(11.0/15.0) ; 
-  buttonY[3] = appHeight*(13.0/15.0) ;
-  buttonWidth[3] = appWidth*(1.0/3.0)*(1.0/5.0) ; 
-  buttonHeight[3] = appHeight*(1.0/3.0)*(1.0/5.0) ;
+  buttonX[3] = appWidth*(3.0/7.0) ; 
+  buttonY[3] = appHeight*(5.0/15.0) ;
+  buttonWidth[3] = appWidth*(1.0/2.0)*(1.0/4.0) ; 
+  buttonHeight[3] = appHeight*(1.0/2.0)*(1.0/4.0) ;
+  //
+  buttonX[4] = appWidth*(12.5/16.0) ; 
+  buttonY[4] = appHeight*(2.0/6.0) ;
+  buttonWidth[4] = appWidth*(1.0/2.0)*(1.0/4.0) ; 
+  buttonHeight[4] = appHeight*(1.0/2.0)*(1.0/4.0) ;
+  //
+  buttonX[5] = appWidth*(3.0/7.0) ; 
+  buttonY[5] = appHeight*(7.5/15.0) ;
+  buttonWidth[5] = appWidth*(1.0/2.0)*(1.0/4.0) ; 
+  buttonHeight[5] = appHeight*(1.0/2.0)*(1.0/4.0) ;
+  //
+  buttonX[6] = appWidth*(12.5/16.0) ; 
+  buttonY[6] = appHeight*(3.0/6.0) ;
+  buttonWidth[6] = appWidth*(1.0/2.0)*(1.0/4.0) ; 
+  buttonHeight[6] = appHeight*(1.0/2.0)*(1.0/4.0) ;
+  //
   //
   print("\nX-values are: ");
   printArray(ptX);
@@ -61,7 +78,8 @@ void setup()
 //
 void draw() 
 {
-  fill(blue);
+  imageDraw();
+  fill(resetWhite);
   rect(ptX[1], ptY[1], rectWidth, rectHeight);
   //
   //if (turnOnBlue==true) fill(blue);
@@ -71,7 +89,7 @@ void draw()
   if (turnOnBlue==true) {fill(blue);} else if (turnOnGreen==true) {fill(green);} else if (turnOnOrange==true) {fill(orange);} else{}
   //
   rect(ptX[2], ptY[2], rectWidth, rectHeight);
-  fill(blue);
+  fill(resetWhite);
   //
   rect(ptX[3], ptY[3], rectWidth, rectHeight);
   rect(ptX[5], ptY[5], rectWidth, rectHeight);
@@ -106,12 +124,36 @@ void draw()
   rect( buttonX[3], buttonY[3], buttonWidth[3], buttonHeight[3] );}
   //
   //
-  if (mouseX>=ptX[3] && mouseX <=ptX[3]+rectWidth && mouseY>=ptY[3] && mouseY<=ptY[3]+rectHeight) {
+  if (mouseX>=buttonX[4] && mouseX <=buttonX[4]+buttonWidth[4] && mouseY>=buttonY[4] && mouseY<=buttonY[4]+buttonHeight[4]) {
   fill(blue);
-  rect( ptX[3], ptY[3], rectWidth, rectHeight);
+  rect( buttonX[4], buttonY[4], buttonWidth[4], buttonHeight[4] );
   } else {
   fill(black);
-  rect( ptX[3], ptY[3], rectWidth, rectHeight); }
+  rect( buttonX[4], buttonY[4], buttonWidth[4], buttonHeight[4] );}
+  //
+  //
+  if (mouseX>=buttonX[5] && mouseX <=buttonX[5]+buttonWidth[5] && mouseY>=buttonY[5] && mouseY<=buttonY[5]+buttonHeight[5]) {
+  fill(blue);
+  rect( buttonX[5], buttonY[5], buttonWidth[5], buttonHeight[5] );
+  } else {
+  fill(black);
+  rect( buttonX[5], buttonY[5], buttonWidth[5], buttonHeight[5] );}
+  //
+  //
+  if (mouseX>=buttonX[6] && mouseX <=buttonX[6]+buttonWidth[6] && mouseY>=buttonY[6] && mouseY<=buttonY[6]+buttonHeight[6]) {
+  fill(blue);
+  rect( buttonX[6], buttonY[6], buttonWidth[6], buttonHeight[6] );
+  } else {
+  fill(black);
+  rect( buttonX[6], buttonY[6], buttonWidth[6], buttonHeight[6] );}
+  //
+  //
+  if (mouseX>=ptX[9] && mouseX <=ptX[9]+rectWidth && mouseY>=ptY[9] && mouseY<=ptY[9]+rectHeight) {
+  fill(blue);
+  rect( ptX[9], ptY[9], rectWidth, rectHeight);
+  } else {
+  fill(black);
+  rect( ptX[9], ptY[9], rectWidth, rectHeight); }
   //
   fill(resetWhite); 
   //
@@ -146,7 +188,7 @@ void keyPressed() {
 void mousePressed() {
   if (mouseX>=buttonX[1] && mouseX <=buttonX[1]+buttonWidth[1] && mouseY>=buttonY[1] && mouseY<=buttonY[1]+buttonHeight[1]) {
   println("BTN 1 ACTIVATED");
-  if (turnOnBlue==true) {turnOnBlue=false;} else{turnOnBlue=true;}
+  loadImage("ship-1029x1060.png");
 }
   //
   if (mouseX>=buttonX[2] && mouseX <=buttonX[2]+buttonWidth[2] && mouseY>=buttonY[2] && mouseY<=buttonY[2]+buttonHeight[2]) {
