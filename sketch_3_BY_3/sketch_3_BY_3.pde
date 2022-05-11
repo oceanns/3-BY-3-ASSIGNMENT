@@ -1,9 +1,10 @@
 //Global Variables
 float rectWidth, rectHeight, ptDiameter;
+String img;
 color blue=#2028E8, green=#7AE320, orange=#E8BF38;
 color black=0, resetWhite=255, red=color(255, 0, 0);
 Boolean turnOnBlue=false, turnOnGreen=false, turnOnOrange=false;
-Boolean turnOnpic1=false; 
+Boolean turnOnImage=false; 
 //
 int numberOfPoints = 17;
 float[] ptX = new float[numberOfPoints];
@@ -103,7 +104,6 @@ void draw()
   if (mouseX>=buttonX[1] && mouseX <=buttonX[1]+buttonWidth[1] && mouseY>=buttonY[1] && mouseY<=buttonY[1]+buttonHeight[1]) {
   fill(blue);
   rect( buttonX[1], buttonY[1], buttonWidth[1], buttonHeight[1] );
-  imageDraw1();
   } else {
   fill(black);
   rect( buttonX[1], buttonY[1], buttonWidth[1], buttonHeight[1] );
@@ -189,8 +189,8 @@ void keyPressed() {
 //
 void mousePressed() {
   if (mouseX>=buttonX[1] && mouseX <=buttonX[1]+buttonWidth[1] && mouseY>=buttonY[1] && mouseY<=buttonY[1]+buttonHeight[1]) {
-  println("BTN 1 ACTIVATED");
-  imageDraw1();
+  println("BTN 1 ACTIVATED"); 
+  if ( turnOnImage==true ) image(pic1, rectXPic1, rectYPic1, rectWidthPic1, rectHeightPic1); 
 }
   //
   if (mouseX>=buttonX[2] && mouseX <=buttonX[2]+buttonWidth[2] && mouseY>=buttonY[2] && mouseY<=buttonY[2]+buttonHeight[2]) {
