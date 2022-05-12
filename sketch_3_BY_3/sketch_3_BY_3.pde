@@ -1,10 +1,12 @@
 //Global Variables
 float rectWidth, rectHeight, ptDiameter;
-String img;
+//
 color blue=#2028E8, green=#7AE320, orange=#E8BF38;
 color black=0, resetWhite=255, red=color(255, 0, 0);
 Boolean turnOnBlue=false, turnOnGreen=false, turnOnOrange=false;
 Boolean turnOnImage=false; 
+//
+PImage pic1;
 //
 int numberOfPoints = 17;
 float[] ptX = new float[numberOfPoints];
@@ -19,6 +21,8 @@ void setup()
 {
   fullScreen();
   displayOrientation();
+  //
+  pic1 = loadImage("ship-1029x1060.png");
   //
   //Population
   rectWidth = appWidth*1/3;
@@ -79,9 +83,9 @@ void setup()
 //
 void draw() 
 {
-  imageDraw1();
   fill(resetWhite);
   rect(ptX[1], ptY[1], rectWidth, rectHeight);
+  if (turnOnImage==true) image(pic1, ptX[1], ptY[1], rectWidth, rectHeight); 
   //
   //if (turnOnBlue==true) fill(blue);
   //if (turnOnGreen==true) fill(green);
@@ -190,7 +194,7 @@ void keyPressed() {
 void mousePressed() {
   if (mouseX>=buttonX[1] && mouseX <=buttonX[1]+buttonWidth[1] && mouseY>=buttonY[1] && mouseY<=buttonY[1]+buttonHeight[1]) {
   println("BTN 1 ACTIVATED"); 
-  if ( turnOnImage==true ) image(pic1, rectXPic1, rectYPic1, rectWidthPic1, rectHeightPic1); 
+  turnOnImage=true; 
 }
   //
   if (mouseX>=buttonX[2] && mouseX <=buttonX[2]+buttonWidth[2] && mouseY>=buttonY[2] && mouseY<=buttonY[2]+buttonHeight[2]) {

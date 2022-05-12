@@ -1,4 +1,3 @@
-PImage pic1;
 
 float rectXPic1, rectYPic1, rectWidthPic1, rectHeightPic1;
 
@@ -12,8 +11,8 @@ println(pic1Width, pic1Height);
 //
 image(pic1, rectXPic1, rectYPic1, rectWidthPic1, rectHeightPic1); 
 //
-rectXPic1 = displayWidth*1/7;
-rectYPic1 = displayHeight*-0.1;
-rectWidthPic1 = displayWidth*0.7;
+rectXPic1 = displayWidth*1/2;
+rectYPic1 = displayHeight*1/2;
+rectWidthPic1 = displayWidth*1/2;
 rectHeightPic1 = displayHeight*1/2;
 }
