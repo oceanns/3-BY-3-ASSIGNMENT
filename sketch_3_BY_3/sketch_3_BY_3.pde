@@ -1,17 +1,18 @@
 //Global Variables
 float rectWidth, rectHeight, ptDiameter;
 //
-color blue=#4FA3E5, green=#7AE320, orange=#E8BF38, gray=#A9B5BF, white=#FCFEFF;
+color blue=#4FA3E5, green=#10FF00, orange=#E8BF38, gray=#A9B5BF, white=#FCFEFF, green2=#A5EA98, red2=#E89696;
 color black=0, red=color(255, 0, 0);
 Boolean turnOnBlue=false, turnOnGreen=false, turnOnOrange=false;
-Boolean turnOnImage=false, turnOnImage2=false, turnOnImage3=false, turnOnImage4=false, turnOnImage5=false, turnOnImage6=false;
+Boolean turnOnImage=false, turnOnImage2=false, turnOnImage3=false, turnOnImage4=false, turnOnImage5=false, turnOnImage6=false, turnOnImage7=false, turnOnImage8=true;
+Boolean turnOnText=false;
 //
-PImage pic1, pic2, pic3, pic4;
+PImage pic1, pic2, pic3, pic4, pic5, pic6;
 //
 int numberOfPoints = 17;
 float[] ptX = new float[numberOfPoints];
 float[] ptY = new float[numberOfPoints];
-int numberOfButtons = 10; 
+int numberOfButtons = 14; 
 float[] buttonX = new float[numberOfButtons];
 float[] buttonY = new float[numberOfButtons];
 float[] buttonWidth = new float[numberOfButtons];
@@ -26,6 +27,8 @@ void setup()
   pic2 = loadImage("boat2.png");
   pic3 = loadImage("boat3.png");
   pic4 = loadImage("boom-319x327.png");
+  pic5 = loadImage("logo.png");
+  pic6 = loadImage("bing.png");
   //
   //Population
   rectWidth = appWidth*1/3;
@@ -72,6 +75,15 @@ void setup()
   buttonWidth[6] = appWidth*(1.0/2.0)*(1.0/4.0) ; 
   buttonHeight[6] = appHeight*(1.0/2.0)*(1.0/4.0) ;
   //
+  buttonX[7] = appWidth*(3.0/7.0) ; 
+  buttonY[7] = appHeight*(2.0/3.0) ;
+  buttonWidth[7] = appWidth*(1.0/2.0)*(1.0/4.0) ; 
+  buttonHeight[7] = appHeight*(1.0/2.0)*(1.0/8.0) ;
+  //
+  buttonX[8] = appWidth*(12.5/16.0) ; 
+  buttonY[8] = appHeight*(5.5/6.0) ;
+  buttonWidth[8] = appWidth*(1.0/2.0)*(1.0/4.0) ; 
+  buttonHeight[8] = appHeight*(5.0/6.0)*(1.0/8.0) ;
   //
   print("\nX-values are: ");
   printArray(ptX);
@@ -108,9 +120,17 @@ void draw()
   rect(ptX[5], ptY[5], rectWidth, rectHeight);
   rect(ptX[6], ptY[6], rectWidth, rectHeight);
   rect(ptX[7], ptY[7], rectWidth, rectHeight);
-  rect(ptX[9], ptY[9], rectWidth, rectHeight);
+  //
   rect(ptX[10], ptY[10], rectWidth, rectHeight);
+  if (turnOnImage7==true) image(pic5, ptX[10], ptY[10], rectWidth, rectHeight); 
+  //
+  rect(ptX[9], ptY[9], rectWidth, rectHeight);
+  //
+  //
   rect(ptX[11], ptY[11], rectWidth, rectHeight);
+  if (turnOnImage8==true) image(pic6, ptX[11], ptY[11], rectWidth, rectHeight); 
+  if (turnOnText==true) text1(); 
+  
   
   
   //
@@ -119,7 +139,7 @@ void draw()
   fill(green);
   rect( buttonX[1], buttonY[1], buttonWidth[1], buttonHeight[1] );
   } else {
-  fill(black);
+  fill(green2);
   rect( buttonX[1], buttonY[1], buttonWidth[1], buttonHeight[1] );
   }
   //
@@ -128,7 +148,7 @@ void draw()
   fill(red);
   rect( buttonX[2], buttonY[2], buttonWidth[2], buttonHeight[2] );
   } else {
-  fill(black);
+  fill(red2);
   rect( buttonX[2], buttonY[2], buttonWidth[2], buttonHeight[2] );}
   //
   //
@@ -136,7 +156,7 @@ void draw()
   fill(green);
   rect( buttonX[3], buttonY[3], buttonWidth[3], buttonHeight[3] );
   } else {
-  fill(black);
+  fill(green2);
   rect( buttonX[3], buttonY[3], buttonWidth[3], buttonHeight[3] );}
   //
   //
@@ -144,7 +164,7 @@ void draw()
   fill(green);
   rect( buttonX[4], buttonY[4], buttonWidth[4], buttonHeight[4] );
   } else {
-  fill(black);
+  fill(green2);
   rect( buttonX[4], buttonY[4], buttonWidth[4], buttonHeight[4] );}
   //
   //
@@ -152,7 +172,7 @@ void draw()
   fill(red);
   rect( buttonX[5], buttonY[5], buttonWidth[5], buttonHeight[5] );
   } else {
-  fill(black);
+  fill(red2);
   rect( buttonX[5], buttonY[5], buttonWidth[5], buttonHeight[5] );}
   //
   //
@@ -160,32 +180,32 @@ void draw()
   fill(red);
   rect( buttonX[6], buttonY[6], buttonWidth[6], buttonHeight[6] );
   } else {
-  fill(black);
+  fill(red2);
   rect( buttonX[6], buttonY[6], buttonWidth[6], buttonHeight[6] );}
+  //
+  //
+  if (mouseX>=buttonX[7] && mouseX <=buttonX[7]+buttonWidth[7] && mouseY>=buttonY[7] && mouseY<=buttonY[7]+buttonHeight[7]) {
+  fill(red);
+  rect( buttonX[7], buttonY[7], buttonWidth[7], buttonHeight[7] );
+  } else {
+  fill(red2);
+  rect( buttonX[7], buttonY[7], buttonWidth[7], buttonHeight[7] );}
+  //
+  //
+  if (mouseX>=buttonX[8] && mouseX <=buttonX[8]+buttonWidth[8] && mouseY>=buttonY[8] && mouseY<=buttonY[8]+buttonHeight[8]) {
+  fill(red);
+  rect( buttonX[8], buttonY[8], buttonWidth[8], buttonHeight[8] );
+  } else {
+  fill(red2);
+  rect( buttonX[8], buttonY[8], buttonWidth[8], buttonHeight[8] );}
   //
   //
   if (mouseX>=ptX[9] && mouseX <=ptX[9]+rectWidth && mouseY>=ptY[9] && mouseY<=ptY[9]+rectHeight) {
   fill(orange);
   rect( ptX[9], ptY[9], rectWidth, rectHeight);
   } else {
-  fill(white);
+  fill(black);
   rect( ptX[9], ptY[9], rectWidth, rectHeight); }
-  //
-  //
-  if (mouseX>=ptX[10] && mouseX <=ptX[10]+rectWidth && mouseY>=ptY[10] && mouseY<=ptY[9]+rectHeight) {
-  fill(orange);
-  rect( ptX[10], ptY[10], rectWidth, rectHeight);
-  } else {
-  fill(white);
-  rect( ptX[10], ptY[10], rectWidth, rectHeight); }
-  //
-  //
-  if (mouseX>=ptX[11] && mouseX <=ptX[11]+rectWidth && mouseY>=ptY[11] && mouseY<=ptY[11]+rectHeight) {
-  fill(orange);
-  rect( ptX[11], ptY[11], rectWidth, rectHeight);
-  } else {
-  fill(white);
-  rect( ptX[11], ptY[11], rectWidth, rectHeight); }
   //
   //
   //
@@ -248,6 +268,11 @@ void mousePressed() {
   turnOnImage6=true;
 }
   //
+  if (mouseX>=buttonX[7] && mouseX <=buttonX[7]+buttonWidth[7] && mouseY>=buttonY[7] && mouseY<=buttonY[7]+buttonHeight[7]) {
+  println("BTN 3 ACTIVATED");
+  turnOnImage7=true;
+}
+  //
   if (mouseX>=ptX[9] && mouseX <=ptX[9]+rectWidth && mouseY>=ptY[9] && mouseY<=ptY[9]+rectHeight) {
   println("BTN 4 ACTIVATED");
   turnOnImage=false;
@@ -256,9 +281,13 @@ void mousePressed() {
   turnOnImage5=false;
   turnOnImage6=false;
   turnOnImage3=false;
-  
-  
+  turnOnText=false;
 }
+  //
+  if (mouseX>=buttonX[8] && mouseX <=buttonX[8]+buttonWidth[8] && mouseY>=buttonY[8] && mouseY<=buttonY[8]+buttonHeight[8]) {
+  turnOnText=true;
+}
+  //
 }//
 //
 //
