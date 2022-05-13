@@ -1,12 +1,12 @@
 //Global Variables
 float rectWidth, rectHeight, ptDiameter;
 //
-color blue=#2028E8, green=#7AE320, orange=#E8BF38;
-color black=0, resetWhite=255, red=color(255, 0, 0);
+color blue=#4FA3E5, green=#7AE320, orange=#E8BF38, gray=#A9B5BF, white=#FCFEFF;
+color black=0, red=color(255, 0, 0);
 Boolean turnOnBlue=false, turnOnGreen=false, turnOnOrange=false;
-Boolean turnOnImage=false; 
+Boolean turnOnImage=false, turnOnImage2=false, turnOnImage3=false, turnOnImage4=false, turnOnImage5=false, turnOnImage6=false;
 //
-PImage pic1;
+PImage pic1, pic2, pic3, pic4;
 //
 int numberOfPoints = 17;
 float[] ptX = new float[numberOfPoints];
@@ -23,6 +23,9 @@ void setup()
   displayOrientation();
   //
   pic1 = loadImage("ship-1029x1060.png");
+  pic2 = loadImage("boat2.png");
+  pic3 = loadImage("boat3.png");
+  pic4 = loadImage("boom-319x327.png");
   //
   //Population
   rectWidth = appWidth*1/3;
@@ -82,31 +85,38 @@ void setup()
 }//
 //
 void draw() 
-{
-  fill(resetWhite);
+{ 
   rect(ptX[1], ptY[1], rectWidth, rectHeight);
   if (turnOnImage==true) image(pic1, ptX[1], ptY[1], rectWidth, rectHeight); 
+  if (turnOnImage4==true) image(pic4, ptX[1], ptY[1], rectWidth, rectHeight); 
+  fill(blue);
   //
-  //if (turnOnBlue==true) fill(blue);
-  //if (turnOnGreen==true) fill(green);
-  //if (turnOnOrange==true) fill(orange);
-  //
-  if (turnOnBlue==true) {fill(blue);} else if (turnOnGreen==true) {fill(green);} else if (turnOnOrange==true) {fill(orange);} else{}
   //
   rect(ptX[2], ptY[2], rectWidth, rectHeight);
-  fill(resetWhite);
+  if (turnOnImage2==true) image(pic2, ptX[2], ptY[2], rectWidth, rectHeight); 
+  if (turnOnImage5==true) image(pic4, ptX[2], ptY[2], rectWidth, rectHeight);
+  fill(blue);
+  //
   //
   rect(ptX[3], ptY[3], rectWidth, rectHeight);
+  if (turnOnImage3==true) image(pic3, ptX[3], ptY[3], rectWidth, rectHeight); 
+  if (turnOnImage6==true) image(pic4, ptX[3], ptY[3], rectWidth, rectHeight); 
+  fill(blue);
+  //
+  //
+  fill(gray);
   rect(ptX[5], ptY[5], rectWidth, rectHeight);
   rect(ptX[6], ptY[6], rectWidth, rectHeight);
   rect(ptX[7], ptY[7], rectWidth, rectHeight);
   rect(ptX[9], ptY[9], rectWidth, rectHeight);
   rect(ptX[10], ptY[10], rectWidth, rectHeight);
   rect(ptX[11], ptY[11], rectWidth, rectHeight);
+  
+  
   //
   
   if (mouseX>=buttonX[1] && mouseX <=buttonX[1]+buttonWidth[1] && mouseY>=buttonY[1] && mouseY<=buttonY[1]+buttonHeight[1]) {
-  fill(blue);
+  fill(green);
   rect( buttonX[1], buttonY[1], buttonWidth[1], buttonHeight[1] );
   } else {
   fill(black);
@@ -115,7 +125,7 @@ void draw()
   //
   //
   if (mouseX>=buttonX[2] && mouseX <=buttonX[2]+buttonWidth[2] && mouseY>=buttonY[2] && mouseY<=buttonY[2]+buttonHeight[2]) {
-  fill(blue);
+  fill(red);
   rect( buttonX[2], buttonY[2], buttonWidth[2], buttonHeight[2] );
   } else {
   fill(black);
@@ -123,7 +133,7 @@ void draw()
   //
   //
   if (mouseX>=buttonX[3] && mouseX <=buttonX[3]+buttonWidth[3] && mouseY>=buttonY[3] && mouseY<=buttonY[3]+buttonHeight[3]) {
-  fill(blue);
+  fill(green);
   rect( buttonX[3], buttonY[3], buttonWidth[3], buttonHeight[3] );
   } else {
   fill(black);
@@ -131,7 +141,7 @@ void draw()
   //
   //
   if (mouseX>=buttonX[4] && mouseX <=buttonX[4]+buttonWidth[4] && mouseY>=buttonY[4] && mouseY<=buttonY[4]+buttonHeight[4]) {
-  fill(blue);
+  fill(green);
   rect( buttonX[4], buttonY[4], buttonWidth[4], buttonHeight[4] );
   } else {
   fill(black);
@@ -139,7 +149,7 @@ void draw()
   //
   //
   if (mouseX>=buttonX[5] && mouseX <=buttonX[5]+buttonWidth[5] && mouseY>=buttonY[5] && mouseY<=buttonY[5]+buttonHeight[5]) {
-  fill(blue);
+  fill(red);
   rect( buttonX[5], buttonY[5], buttonWidth[5], buttonHeight[5] );
   } else {
   fill(black);
@@ -147,7 +157,7 @@ void draw()
   //
   //
   if (mouseX>=buttonX[6] && mouseX <=buttonX[6]+buttonWidth[6] && mouseY>=buttonY[6] && mouseY<=buttonY[6]+buttonHeight[6]) {
-  fill(blue);
+  fill(red);
   rect( buttonX[6], buttonY[6], buttonWidth[6], buttonHeight[6] );
   } else {
   fill(black);
@@ -155,15 +165,33 @@ void draw()
   //
   //
   if (mouseX>=ptX[9] && mouseX <=ptX[9]+rectWidth && mouseY>=ptY[9] && mouseY<=ptY[9]+rectHeight) {
-  fill(blue);
+  fill(orange);
   rect( ptX[9], ptY[9], rectWidth, rectHeight);
   } else {
-  fill(black);
+  fill(white);
   rect( ptX[9], ptY[9], rectWidth, rectHeight); }
   //
-  fill(resetWhite); 
   //
-  fill(black);
+  if (mouseX>=ptX[10] && mouseX <=ptX[10]+rectWidth && mouseY>=ptY[10] && mouseY<=ptY[9]+rectHeight) {
+  fill(orange);
+  rect( ptX[10], ptY[10], rectWidth, rectHeight);
+  } else {
+  fill(white);
+  rect( ptX[10], ptY[10], rectWidth, rectHeight); }
+  //
+  //
+  if (mouseX>=ptX[11] && mouseX <=ptX[11]+rectWidth && mouseY>=ptY[11] && mouseY<=ptY[11]+rectHeight) {
+  fill(orange);
+  rect( ptX[11], ptY[11], rectWidth, rectHeight);
+  } else {
+  fill(white);
+  rect( ptX[11], ptY[11], rectWidth, rectHeight); }
+  //
+  //
+  //
+  fill(blue); 
+  //
+  fill(blue);
   //
   ellipse(ptX[1], ptY[1], ptDiameter, ptDiameter);
   ellipse(ptX[2], ptY[2], ptDiameter, ptDiameter);
@@ -174,9 +202,8 @@ void draw()
   ellipse(ptX[9], ptY[9], ptDiameter, ptDiameter);
   ellipse(ptX[10], ptY[10], ptDiameter, ptDiameter);
   ellipse(ptX[11], ptY[11], ptDiameter, ptDiameter);
-  fill(resetWhite); //Best Practice
   //
-  fill(red);
+  fill(blue);
   //
   ellipse(ptX[4], ptY[4], ptDiameter, ptDiameter);
   ellipse(ptX[8], ptY[8], ptDiameter, ptDiameter);
@@ -185,7 +212,6 @@ void draw()
   ellipse(ptX[14], ptY[14], ptDiameter, ptDiameter);
   ellipse(ptX[15], ptY[15], ptDiameter, ptDiameter);
   ellipse(ptX[16], ptY[16], ptDiameter, ptDiameter);
-  fill(resetWhite); //
 }//
 //
 void keyPressed() {
@@ -199,19 +225,39 @@ void mousePressed() {
   //
   if (mouseX>=buttonX[2] && mouseX <=buttonX[2]+buttonWidth[2] && mouseY>=buttonY[2] && mouseY<=buttonY[2]+buttonHeight[2]) {
   println("BTN 2 ACTIVATED");
-  if (turnOnGreen==true) {turnOnGreen=false;} else {turnOnGreen=true;}
+  turnOnImage4=true;
 }
   //
   if (mouseX>=buttonX[3] && mouseX <=buttonX[3]+buttonWidth[3] && mouseY>=buttonY[3] && mouseY<=buttonY[3]+buttonHeight[3]) {
   println("BTN 3 ACTIVATED");
-  if (turnOnOrange==true) {turnOnOrange=false;} else {turnOnOrange=true;}
+  turnOnImage2=true;
 }
   //
-  if (mouseX>=ptX[3] && mouseX <=ptX[3]+rectWidth && mouseY>=ptY[3] && mouseY<=ptY[3]+rectHeight) {
+  if (mouseX>=buttonX[5] && mouseX <=buttonX[5]+buttonWidth[5] && mouseY>=buttonY[5] && mouseY<=buttonY[5]+buttonHeight[5]) {
+  println("BTN 3 ACTIVATED");
+  turnOnImage5=true;
+}
+  //
+  if (mouseX>=buttonX[4] && mouseX <=buttonX[4]+buttonWidth[4] && mouseY>=buttonY[4] && mouseY<=buttonY[4]+buttonHeight[4]) {
+  println("BTN 3 ACTIVATED");
+  turnOnImage3=true;
+}
+  //
+  if (mouseX>=buttonX[6] && mouseX <=buttonX[6]+buttonWidth[6] && mouseY>=buttonY[6] && mouseY<=buttonY[6]+buttonHeight[6]) {
+  println("BTN 3 ACTIVATED");
+  turnOnImage6=true;
+}
+  //
+  if (mouseX>=ptX[9] && mouseX <=ptX[9]+rectWidth && mouseY>=ptY[9] && mouseY<=ptY[9]+rectHeight) {
   println("BTN 4 ACTIVATED");
-  turnOnBlue=false;
-  turnOnGreen=false;
-  turnOnOrange=false;
+  turnOnImage=false;
+  turnOnImage2=false;
+  turnOnImage4=false;
+  turnOnImage5=false;
+  turnOnImage6=false;
+  turnOnImage3=false;
+  
+  
 }
 }//
 //
